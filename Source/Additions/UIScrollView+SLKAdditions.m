@@ -53,7 +53,8 @@
 
 - (CGRect)slk_bottomRect
 {
-    return CGRectMake(0, self.contentSize.height - CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+	CGFloat y = self.contentSize.height - CGRectGetHeight(self.bounds);
+	return CGRectMake(0, y < 0 ? 0 : y, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
 }
 
 - (void)slk_stopScrolling
